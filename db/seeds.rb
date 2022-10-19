@@ -11,9 +11,9 @@ require 'faker'
 puts 'Creating 10 fake restaurants...'
 10.times do
   restaurant = Restaurant.new(
-    name:    Faker::Company.name,
+    name: Faker::Company.name,
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    rating:  rand(0..5)
+    rating: rand(0..5)
   )
   restaurant.save
 end
