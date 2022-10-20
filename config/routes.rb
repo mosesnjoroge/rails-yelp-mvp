@@ -4,9 +4,17 @@ Rails.application.routes.draw do
   # Defines the root path route ('/')
   # root 'articles#index'
   # resources :restaurants
-  resources :restaurants do
-    resources :reviews, only: [:index, :new, :create]
-  end
+  # show all restaurants
+  get 'restaurants', to: 'restaurants#index'
+  # new restaurant
+  get 'restaurants/new', to: 'restaurants#new'
+  post 'restaurants', to: 'restaurants#create'
+  # individual restuarants
+  get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
 
-  resources :reviews, only: [:show, :edit, :update, :destroy]
+  # resources :restaurants do
+  #   resources :reviews, only: [:index, :new, :create]
+  # end
+
+  # resources :reviews, only: [:show, :edit, :update, :destroy]
 end

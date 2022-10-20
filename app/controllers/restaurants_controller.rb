@@ -13,23 +13,18 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    # @review.restaurant = @restaurant
+    @restaurant.save
     if @restaurant.save
-      redirect_to restaurant_path, notice: 'restaurant was successfully created'
+      redirect_to restaurant_path(@restaurant), notice: 'restaurant was successfully created'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
-    @edit_restaurant = Restaurant.find(params[:id])
-  end
-
-  def destroy
-    @restaurant = Restaurant.find(params[:id])
-    @edit_restaurant.destroy
-    redirect_to restaurants_path
-  end
+  # def edit
+  #   @edit_restaurant = Restaurant.find(params[:id])
+  #   @
+  # end
 
   private
 

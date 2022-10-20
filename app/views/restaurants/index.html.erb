@@ -1,1 +1,23 @@
-<%= @restaurants.name %>
+<div>
+  <div>
+    <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Yelp MVP</span>
+    <%# <%= link_to 'Leave a review', new_restaurant_review_path(@review) %>
+    <%= link_to 'Create a restaurant', restaurants_new_path %>
+  </nav>
+  </div>
+  <div class = 'container'>
+    <ul>
+      <% @restaurants.each do |resto|  %>
+        <div class = 'card'>
+          <li>
+              <%= resto.name %>
+              <%= resto.address %>
+              <%= resto.phone_number %>
+              <%= resto.category %>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+</div>

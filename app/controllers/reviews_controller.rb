@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @review = Review.find(params[:id])
   end
 
   def create
