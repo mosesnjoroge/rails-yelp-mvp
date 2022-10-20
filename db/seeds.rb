@@ -10,10 +10,12 @@ require 'faker'
 
 puts 'Creating 10 fake restaurants...'
 10.times do
+  category_array = %w[chinese italian japanese french belgian].sample
   restaurant = Restaurant.new(
     name: Faker::Company.name,
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    rating: rand(0..5)
+    phone_number: Faker::PhoneNumber.cell_phone,
+    category: category_array
   )
   restaurant.save
 end
