@@ -5,16 +5,16 @@ Rails.application.routes.draw do
   # root 'articles#index'
   # resources :restaurants
   # show all restaurants
-  get 'restaurants', to: 'restaurants#index'
-  # new restaurant
-  get 'restaurants/new', to: 'restaurants#new'
-  post 'restaurants', to: 'restaurants#create'
-  # individual restuarants
-  get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
+  # get 'restaurants', to: 'restaurants#index'
+  # # new restaurant
+  # get 'restaurants/new', to: 'restaurants#new'
+  # post 'restaurants', to: 'restaurants#create'
+  # # individual restuarants
+  # get 'restaurants/:id', to: 'restaurants#show', as: :restaurant
 
-  # resources :restaurants do
-  #   resources :reviews, only: [:index, :new, :create]
-  # end
+  resources :restaurants, only: %i[index new create show] do
+    resources :reviews, only: %i[new create]
+  end
 
-  # resources :reviews, only: [:show, :edit, :update, :destroy]
+  resources :reviews, only: [:destroy]
 end

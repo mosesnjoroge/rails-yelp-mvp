@@ -3,7 +3,7 @@
     <nav class="navbar navbar-light bg-light">
     <span class="navbar-brand mb-0 h1">Yelp MVP</span>
     <%# <%= link_to 'Leave a review', new_restaurant_review_path(@review) %>
-    <%= link_to 'Create a restaurant', restaurants_new_path %>
+    <%= link_to 'Create a restaurant', new_restaurant_path %>
   </nav>
   </div>
   <div class = 'container'>
@@ -16,6 +16,7 @@
               <%= resto.phone_number %>
               <%= resto.category %>
           </li>
+          <%# <%= link_to 'Show this restaurant', restaurant_path %>
         </div>
       <% end %>
     </ul>

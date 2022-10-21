@@ -1,44 +1,32 @@
 class ReviewsController < ApplicationController
-  def index
-    @reviews = Review.all
-  end
-
-  def show
-    @review = Review.find(params[:id])
-  end
+  before_action :set_review, only: [:new, :create]
 
   def new
     @review = Review.new
-    @review = Review.find(params[:id])
   end
 
   def create
     @review = Review.new(review_params)
     @review.restaurant = @restaurant
     if @review.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(@review), notice: 'restaurant was successfully created'
     else
       render :new, status: :see_other
     end
   end
 
-  def edit
-    @edit_review = Review.find(params[:id])
-  end
-
-  def update
-    @edit_review = Review.find(params[:id])
-    @edit_review.update(review_params)
-    redirect_to reviews_path
-  end
-
   def destroy
-    @review = Review.find(params[:id])
-    @edit_review.destroy
+    @review.destroy
     redirect_to reviews_path
   end
+
+  private
 
   def review_params
     params.require(:review).permit(:content, :rating)
+  end
+
+  def set_review
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 end
