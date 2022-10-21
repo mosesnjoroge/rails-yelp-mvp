@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.restaurant = @restaurant
     if @review.save
-      redirect_to restaurant_path(@review), notice: 'restaurant was successfully created'
+      redirect_to restaurant_path(@restaurant), notice: 'review was successfully created'
     else
       render :new, status: :see_other
     end

@@ -1,29 +1,32 @@
 <div>
   <div>
     <nav class="navbar navbar-light bg-light">
-      <span class="navbar-brand mb-0 h1">Yelp MVP</span>
-
-      <%= link_to 'Create a restaurant', new_restaurant_path %>
+        <span class="navbar-brand mb-0 h1 py-2">Yelp MVP</span>
+        <%= link_to 'Create a restaurant', new_restaurant_path, class: 'btn btn-primary mb-0 h1 py-1' %>
     </nav>
   </div>
 
-  <div class = 'container' stlye = 'padding-bottom: 60px;'>
-    <% @restaurants.each do |resto|  %>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= resto.name %>
-          </h5>
-          <p class="card-text">
-            <%= resto.address %>
-            <%= resto.phone_number %>
-            <%= resto.category %>
-          </p>
-          <div class = "card-link">
-            <%= link_to "See More", restaurant_path %>
+  <div class = 'container py-3'>
+      <% @restaurants.each do |resto|  %>
+        <div class="row">
+          <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= resto.name %>
+                  </h5>
+                  <p class="card-text">
+                    <%= resto.address %>
+                    <%= resto.phone_number %>
+                    <%= resto.category %>
+                  </p>
+                  <div class = "card-link">
+                    <%= link_to "see more", restaurant_path(resto), class: 'btn btn-primary' %>
+                  </div>
+                </div>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
   </div>
 </div>

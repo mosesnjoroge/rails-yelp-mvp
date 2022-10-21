@@ -1,5 +1,5 @@
 <div class = 'container'>
-  <div class = 'card' style = 'margin-top: 60px;'>
+  <div class = 'card'>
     <div class = 'card-body'>
       <%= @restaurant.name %>
       <%= @restaurant.address %>
@@ -16,12 +16,12 @@
           </li>
         <% end %>
       </ul>
-      <%= simple_form_for [@restaurant, @review] do |f| %>
-        <%= f.input :rating, collection: 0..5 %>
-        <%= f.input :content%>
-        <%= f.submit class: 'btn btn-primary' %>
-        <%= link_to "See all restaurants", restaurants_path %>
-      <% end %>
+    </div>
+    <div class = "container">
+      <div class = "card-link">
+        <%= link_to "leave a review", review_path, class: 'btn btn-primary' %>
+        <%= link_to "Back", restaurants_path%>
+      </div>
     </div>
   </div>
 </div>
