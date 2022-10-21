@@ -1,24 +1,29 @@
 <div>
   <div>
     <nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Yelp MVP</span>
-    <%# <%= link_to 'Leave a review', new_restaurant_review_path(@review) %>
-    <%= link_to 'Create a restaurant', new_restaurant_path %>
-  </nav>
+      <span class="navbar-brand mb-0 h1">Yelp MVP</span>
+
+      <%= link_to 'Create a restaurant', new_restaurant_path %>
+    </nav>
   </div>
-  <div class = 'container'>
-    <ul>
-      <% @restaurants.each do |resto|  %>
-        <div class = 'card'>
-          <li>
-              <%= resto.name %>
-              <%= resto.address %>
-              <%= resto.phone_number %>
-              <%= resto.category %>
-          </li>
-          <%# <%= link_to 'Show this restaurant', restaurant_path %>
+
+  <div class = 'container' stlye = 'padding-bottom: 60px;'>
+    <% @restaurants.each do |resto|  %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= resto.name %>
+          </h5>
+          <p class="card-text">
+            <%= resto.address %>
+            <%= resto.phone_number %>
+            <%= resto.category %>
+          </p>
+          <div class = "card-link">
+            <%= link_to "See More", restaurant_path %>
+          </div>
         </div>
-      <% end %>
-    </ul>
+      </div>
+    <% end %>
   </div>
 </div>

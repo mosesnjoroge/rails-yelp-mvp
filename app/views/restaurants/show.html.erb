@@ -1,20 +1,27 @@
 <div class = 'container'>
-  <div class = 'card'>
-    <%= @restaurant.name %>
-    <%= @restaurant.address %>
-    <%= @restaurant.phone_number %>
-    <%= @restaurant.category %>
+  <div class = 'card' style = 'margin-top: 60px;'>
+    <div class = 'card-body'>
+      <%= @restaurant.name %>
+      <%= @restaurant.address %>
+      <%= @restaurant.phone_number %>
+      <%= @restaurant.category %>
+    </div>
+    <div class = 'card-body'>
+      <p><strong>Reviews</strong></p>
+      <ul class="list-group">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item">
+            <%= review.content %>
+            <%= review.rating %>
+          </li>
+        <% end %>
+      </ul>
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :rating, collection: 0..5 %>
+        <%= f.input :content%>
+        <%= f.submit class: 'btn btn-primary' %>
+        <%= link_to "See all restaurants", restaurants_path %>
+      <% end %>
+    </div>
   </div>
-
-  <p><strong>Reviews</strong></p>
-  <ul class="list-group">
-    <% @restaurant.reviews.each do |review| %>
-      <li class="list-group-item">
-        <%= review.content %>
-        <%= review.rating %>
-      </li>
-    <% end %>
-  </ul>
-
-  <br>
 </div>
