@@ -3,33 +3,26 @@
     <span class= "navbar-brand">Yelp MVP</span>
     <div class="navbar-collapse" id="navbarSupportedContent">
       <span class="nav-item">
-          <a> <%= link_to 'Create a restaurant', new_restaurant_path, class: "nav-link"%>
-          </a>
+        <a> <%= link_to 'Create a restaurant', new_restaurant_path, class: "nav-link"%></a>
       </span>
     </div>
   </div>
 </div>
 
 <div class = 'container py-3'>
-    <% @restaurants.each do |resto|  %>
-      <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <%= resto.name %>
-                </h5>
-                <p class="card-text">
-                  <%= resto.address %>
-                  <%= resto.phone_number %>
-                  <%= resto.category %>
-                </p>
-                <div class = "card-link">
-                  <%= link_to "see more", restaurant_path(resto), class: 'btn btn-primary' %>
-                </div>
-              </div>
+    <div class="cards">
+      <% @restaurants.each do |resto|  %>
+        <div class="card-category">
+          <div class="card-body">
+            <h5 class="card-title"><%= resto.name %></h5>
+            <p class="card-text"><%= resto.address %></p>
+            <p class="card-text"><%= resto.phone_number %></p>
+            <p class="card-text"><%= resto.category %></p>
+            <div class = "card-link">
+              <%= link_to "see more", restaurant_path(resto), class: 'btn btn-outline-primary' %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 </div>
