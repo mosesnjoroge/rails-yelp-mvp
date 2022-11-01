@@ -1,13 +1,11 @@
-<div class="container">
-  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+<div class="container mt-5">
     <h1 style= "padding-top = 50px;">Create a new restaurant</h1>
     <%= simple_form_for @restaurant do |f| %>
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :phone_number %>
       <%= f.input :category, collection: %w[chinese italian japanese french belgian] %>
-      <%= f.submit class: 'btn btn-primary' %>
-      <%= link_to "Back", restaurants_path %>
+      <%= f.submit class: 'btn btn-outline-primary' %>
+      <%= link_to "Back", restaurants_path, class: 'btn btn-outline-danger' %>
     <% end %>
-  </div>
 </div>

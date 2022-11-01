@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:new, :create]
+  before_action :set_review, only: %i[new create]
 
   def new
     @review = Review.new
@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to restaurant_path(@restaurant), notice: 'review was successfully created'
     else
-      render :new, status: :see_other
+      render 'restaurants/show', status: :unprocessable_entity
     end
   end
 

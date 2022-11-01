@@ -1,32 +1,35 @@
-<div>
-  <div>
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1 py-2">Yelp MVP</span>
-        <%= link_to 'Create a restaurant', new_restaurant_path, class: 'btn btn-primary mb-0 h1 py-1' %>
-    </nav>
+<div class="navbar navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
+  <div class="container-fluid">
+    <span class= "navbar-brand">Yelp MVP</span>
+    <div class="navbar-collapse" id="navbarSupportedContent">
+      <span class="nav-item">
+          <a> <%= link_to 'Create a restaurant', new_restaurant_path, class: "nav-link"%>
+          </a>
+      </span>
+    </div>
   </div>
+</div>
 
-  <div class = 'container py-3'>
-      <% @restaurants.each do |resto|  %>
-        <div class="row">
-          <div class="col-sm-6">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%= resto.name %>
-                  </h5>
-                  <p class="card-text">
-                    <%= resto.address %>
-                    <%= resto.phone_number %>
-                    <%= resto.category %>
-                  </p>
-                  <div class = "card-link">
-                    <%= link_to "see more", restaurant_path(resto), class: 'btn btn-primary' %>
-                  </div>
+<div class = 'container py-3'>
+    <% @restaurants.each do |resto|  %>
+      <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= resto.name %>
+                </h5>
+                <p class="card-text">
+                  <%= resto.address %>
+                  <%= resto.phone_number %>
+                  <%= resto.category %>
+                </p>
+                <div class = "card-link">
+                  <%= link_to "see more", restaurant_path(resto), class: 'btn btn-primary' %>
                 </div>
-            </div>
+              </div>
           </div>
         </div>
-      <% end %>
-  </div>
+      </div>
+    <% end %>
 </div>
